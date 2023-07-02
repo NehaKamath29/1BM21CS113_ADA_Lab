@@ -46,15 +46,18 @@ void main()
         vis[i]=0;
     }
     int k=0;
-    printf("%d ",k);
-    vis[k]=1;
-    insert_rear(q,&r,k,n);
-    while(isEmpty(q,&r,&f)==0)
+    printf("%d ",k); // print the first node
+    vis[k]=1; //Make the first node visited
+    insert_rear(q,&r,k,n); // Insert the node in the queue
+    while(isEmpty(q,&r,&f)==0) // if queue is not empty
     {
-        int node=delete_front(q,&r,&f);
+        int node=delete_front(q,&r,&f); //remove node from queue
         for(j=0;j<n;j++)
         {
-            if(graph[node][j]==1 && vis[j]==0)
+            if(graph[node][j]==1 && vis[j]==0) /*if the child of node removed exits and is not visited, make it visited.
+                                                     1.print the child 
+                                                     2.make the node visited.
+                                                     3.insert the child into the queue*/
             {
                 printf("%d ",j);
                 vis[j]=1;
