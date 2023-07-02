@@ -3,13 +3,13 @@ int graph[20][20];
 void DFS(int i,int vis[],int n)
 {
     int j;
-    printf("%d ",i);
-    vis[i]=1;
+    printf("%d ",i); // print the source node
+    vis[i]=1; // make the source node visited
     for(j=0;j<n;j++)
     {
-        if(graph[i][j]==1 && vis[j]==0)
+        if(graph[i][j]==1 && vis[j]==0) // for every adjacent vertex that is not visited
         {
-            DFS(j,vis,n);
+            DFS(j,vis,n); // recursive call to DFS- because we need to print the nodes depth wise
         }
     }
 }
