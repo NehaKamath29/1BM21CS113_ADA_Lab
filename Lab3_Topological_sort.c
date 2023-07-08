@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int s[100], j, res[100]; /*GLOBAL VARIABLES */
+int s[100], j, res[100]; 
 void AdjacencyMatrix(int a[][100], int n)
 {
     for(int i=0;i<n;i++)
@@ -13,8 +13,8 @@ void AdjacencyMatrix(int a[][100], int n)
     }
     return;
 }
-void dfs(int u, int n, int a[][100]) { /* DFS */
-
+void dfs(int u, int n, int a[][100]) 
+{ 
     int v;
     s[u] = 1;
     for (v = 0; v < n ; v++) {
@@ -23,10 +23,10 @@ void dfs(int u, int n, int a[][100]) { /* DFS */
         }
     }
     j += 1;
-    res[j] = u;
+    res[j] = u; // Store every dead node in the array
 }
-void topological_order(int n, int a[][100]) { /* TO FIND TOPOLOGICAL ORDER*/
-
+void topological_order(int n, int a[][100]) 
+{ 
     int i, u;
     for (i = 0; i < n; i++) {
         s[i] = 0;
@@ -42,15 +42,15 @@ void topological_order(int n, int a[][100]) { /* TO FIND TOPOLOGICAL ORDER*/
 int main() {
     int a[100][100], n, i, j;
 
-    printf("Enter number of vertices\n"); /* READ NUMBER OF VERTICES */
+    printf("Enter number of vertices:\n"); /* READ NUMBER OF VERTICES */
     scanf("%d", &n);
     printf("Enter the adjacency matrix:\n");
     AdjacencyMatrix(a, n);
-    printf("\nTopological order:\n");
-
     topological_order(n, a);
-
-    for (i = n; i >=1; i--) {
+    printf("The topological sort order is:\n");
+    for (i = n; i >=1; i--) /*Inside the array 'res', we are adding the nodes that become dead from first to last.
+                              But topological sort is the reverse order.So we are printing the array backwards.*/ 
+    {
         printf("%d ", res[i]);
     }
     return 0;
