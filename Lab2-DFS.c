@@ -32,5 +32,6 @@ void main()
     {
         vis[i]=0;
     }
+    printf("The DFS traversal is:\n");
     DFS(0,vis,n);
 }
