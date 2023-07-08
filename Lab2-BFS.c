@@ -45,6 +45,7 @@ void main()
     {
         vis[i]=0;
     }
+    printf("The BFS traversal is:\n");
     int k=0;
     printf("%d ",k); // print the first node
     vis[k]=1; //Make the first node visited
@@ -61,7 +62,7 @@ void main()
             {
                 printf("%d ",j);
                 vis[j]=1;
-                insert_rear(q,&r,j,n);
+                insert_rear(q,&r,j,n); 
             }
         }
     }
