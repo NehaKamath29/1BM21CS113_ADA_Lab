@@ -32,3 +32,4 @@ void main()
         printf("%d ",hashtable[i]);
     }
 }
+/*This is linear probing code*/
