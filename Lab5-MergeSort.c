@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<time.h>
+#include<stdlib.h>
 void conquor(int arr[], int s,int mid,int e)
 {
     int merged[e-s+1];
@@ -52,12 +53,24 @@ void main()
 {
     clock_t st,et;
     double ts;
-    int arr[]={9,8,7,6};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n= rand()%10000+100000; //random number from 30 to 60; General formala is: rand()%range+min
+    printf("Size of array:%d\n",n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        arr[i]=rand()%100+1;//random number from 1 to 100
+    }
+    /*printf("Original array:\n");
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    printf("\n");*/
     st=clock();
     divide(arr,0,n-1);
     et=clock();
     ts=(double)((et-st)/CLOCKS_PER_SEC);
+    printf("Sorted array:\n");
     for(int i=0;i<n;i++)
     {
         printf("%d ",arr[i]);
