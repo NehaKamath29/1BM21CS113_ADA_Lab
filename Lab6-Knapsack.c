@@ -9,7 +9,7 @@ void main()
     for(int i=0;i<n;i++)
     {
         scanf("%d",&wt[i]);
-        
+
     }
     printf("Enter the profit of %d items:\n",n);
     for(int i=0;i<n;i++)
@@ -43,8 +43,9 @@ void main()
     {
         for(int j=0;j<=cap;j++)
         {
-            printf("%d    ",v[i][j]);
+            printf("%d     ",v[i][j]);
         }
         printf("\n");
     }
+    printf("The maximum profit is %d.\n",v[n][cap]);
 }
