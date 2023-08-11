@@ -1,4 +1,4 @@
-#include<stdio.h>
+ #include<stdio.h>
 #include<time.h>
 #include<stdlib.h>
 void conquor(int arr[], int s,int mid,int e)
@@ -53,10 +53,10 @@ void main()
 {
     clock_t st,et;
     double ts;
-    int n= rand()%10000+100000; //random number from 30 to 60; General formala is: rand()%range+min
+    int n= rand()%100+50; // General formala is: rand()%range+min
     printf("Size of array:%d\n",n);
     int arr[n];
-    for(int i=0;i<n;i++)
+    for(long i=0;i<n;i++)
     {
         arr[i]=rand()%100+1;//random number from 1 to 100
     }
@@ -71,7 +71,7 @@ void main()
     et=clock();
     ts=(double)((et-st)/CLOCKS_PER_SEC);
     printf("Sorted array:\n");
-    for(int i=0;i<n;i++)
+    for(long i=0;i<n;i++)
     {
         printf("%d ",arr[i]);
     }
