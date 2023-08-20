@@ -11,9 +11,9 @@ void main()
 {
    int i;
 
-   printf("enter the number of vertices\n");
+   printf("Enter the number of vertices:\n");
    scanf("%d",&n);
-   printf("enter the cost adjacency matrix\n");
+   printf("Enter the cost adjacency matrix:\n");
    for(i=1;i<=n;i++)
    {
        for(j=1;j<=n;j++)
@@ -23,12 +23,12 @@ void main()
        vis[i]=0;
     }
     prims();
-    printf("edges of spanning tree\n");
+    printf("Edges of spanning tree\n");
     for(i=1;i<=e;i++)
     {
 	printf("%d,%d\t",et[i][0],et[i][1]);
     }
-    printf("weight=%d\n",sum);
+    printf("Weight=%d\n",sum);
 
 }
 
