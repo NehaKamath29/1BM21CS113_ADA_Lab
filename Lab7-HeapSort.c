@@ -31,13 +31,11 @@ void heapify(int a[], int n, int i)
 
 void heapSort(int a[], int n)
 {
-    // Build heap (rearrange array)
     for (int i = n / 2 - 1; i >= 0; i--)
     {
         heapify(a, n, i);
     }
 
-    // Extract elements from heap one by one
     for (int i = n - 1; i > 0; i--)
     {
         swap(&a[0], &a[i]);
@@ -47,22 +45,28 @@ void heapSort(int a[], int n)
 
 int main()
 {
-    int a[] = {15, 5, 20, 1, 7, 10, 30};
-    int n = sizeof(a) / sizeof(a[0]);
-
+    int n;
+    printf("Enter the number of elements in the array:\n");
+    scanf("%d",&n);
+    int arr[n];
+    printf("Enter %d elements:\n",n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
     printf("Original array: ");
     for (int i = 0; i < n; i++)
     {
-        printf("%d ", a[i]);
+        printf("%d ", arr[i]);
     }
     printf("\n");
 
-    heapSort(a, n);
+    heapSort(arr, n);
 
     printf("Sorted array: ");
     for (int i = 0; i < n; i++)
     {
-        printf("%d ", a[i]);
+        printf("%d ", arr[i]);
     }
     printf("\n");
 
