@@ -1,6 +1,4 @@
 #include<stdio.h>
-#include<conio.h>
-
 int find(int v,int parent[10])
 {
    while(parent[v]!=v)
@@ -9,7 +7,6 @@ int find(int v,int parent[10])
    }
    return v;
 }
-
 void union1(int i,int j,int parent[10])
 {
    if(i<j)
@@ -17,7 +14,6 @@ void union1(int i,int j,int parent[10])
    else
       parent[i]=j;
 }
-
 void kruskal(int n,int a[10][10])
 {
    int count,k,min,sum,i,j,t[10][10],u,v,parent[10];
@@ -57,28 +53,26 @@ void kruskal(int n,int a[10][10])
     }
     if(count==n-1)
     {
-       printf("spanning tree\n");
+       printf("Spanning tree\n");
        for(i=0;i<n-1;i++)
        {
 	  printf("%d %d\n",t[i][0],t[i][1]);
        }
-       printf("cost of spanning tree=%d\n",sum);
+       printf("Cost of spanning tree=%d\n",sum);
     }
     else
-       printf("spanning tree does not exist\n");
+       printf("Spanning tree does not exist\n");
   }
-
-
 void main()
 {
    int n,i,j,a[10][10];
-   printf("enter the number of nodes\n");
+   printf("Enter the number of nodes:\n");
    scanf("%d",&n);
-   printf("enter the adjacency matrix\n");
+   printf("Enter the adjacency matrix:\n");
    for(i=0;i<n;i++)
      for(j=0;j<n;j++)
 	scanf("%d",&a[i][j]);
    kruskal(n,a);
-   getch();
+   
 
 }
