@@ -18,7 +18,7 @@ int delete_front(int q[],int *r, int *f)
 
 
     return del_item;
-}
+} 
 int isEmpty(int q[], int *r, int *f)
 {
     if(*r==-1 || *r==*f)

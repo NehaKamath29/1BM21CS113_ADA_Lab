@@ -10,7 +10,7 @@ int partition(int arr[], int low, int high) {
     {
         do
         {
-            i++;
+            i++; 
         }while (arr[i] <= pivot && i <= high);
 
         do

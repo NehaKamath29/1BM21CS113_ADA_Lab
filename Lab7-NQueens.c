@@ -1,85 +1,101 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-void displayBoard(char board[][4], int n) {
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("%c ", board[i][j]);
+#include<stdio.h>
+#include<stdlib.h>
+char board[20][20];
+void printBoard(int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            printf("%c ",board[i][j]);
         }
         printf("\n");
     }
+    printf("\n");
 }
-int isSafe(int row, int col, char board[][4], int n)
+int isSafe(int col, int row, int n)
 {
-    int duprow = row;
-    int dupcol = col;
-    // Checking left side
-    while (col >= 0)
+    //horizontal
+    for(int j=0;j<n;j++)
     {
-        if (board[row][col] == 'Q')
-            return 0;
-        col--;
+        if(board[row][j]=='Q')
+        return 0;
     }
-    row = duprow;
-    col = dupcol;
-    // Checking Left Upper diagonal
-    while (row >= 0 && col >= 0)
+
+    //vertical
+    for(int i=0;i<n;i++)
     {
-        if (board[row][col] == 'Q')
-            return 0;
-        row--;
-        col--;
+        if(board[i][col]=='Q')
+        return 0;
     }
-    row = duprow;
-    col = dupcol;
-    // Checking Left Lower diagonal
-    while (row < n && col >= 0)
+
+    //upper left
+    int r=row;
+    for(int c=col;c>=0,r>=0;c--,r--)
     {
-        if (board[row][col] == 'Q')
-            return 0;
-        row++;
-        col--;
+        if(board[r][c]=='Q')
+        return 0;
+    }
+
+    //upper right
+    r=row;
+    for(int c=col;r>=0,c<n;r--,c++)
+    {
+        if(board[r][c]=='Q')
+        return 0;
+    }
+
+    //lower left
+    r=row;
+    for(int c=col;r<n,c>=0;r++,c--)
+    {
+        if(board[r][c]=='Q')
+        return 0;
+    }
+
+    //lower right
+    r=row;
+    for(int c=col;r<n,c<n;r++,c++)
+    {
+        if(board[r][c]=='Q')
+        return 0;
     }
     return 1;
 }
-void solve(int col, char board[][4], int n)
+void helper(int col, int n)
 {
-    if(col == n)
+    if(col==n)
     {
-        displayBoard(board,n);
-        printf("\n"); //For next combination of board
+        printBoard(n);
         return;
     }
-    for(int row =0; row<n;row++)
+    for(int row=0;row<n;row++)
     {
-        if(isSafe(row,col,board,n))
+        if(isSafe(col,row,n)==1)
         {
-            board[row][col] ='Q';
-            solve(col+1,board,n);
-            board[row][col] = '.'; //Backtracking step
+            board[row][col]='Q';
+            helper(col+1,n);
+            board[row][col]='.';
         }
     }
 }
-
-int main()
+void main()
 {
     int n;
-    printf("Enter the dimension of chessBoard:\n");
-    scanf("%d", &n);
-    if(n==2 || n==3)
+    printf("Enter the size of chess board:\n");
+    scanf("%d",&n);
+    if(n==2||n==3)
     {
         printf("No solution exists!\n");
         exit(0);
     }
-    char board[n][n];
-    // Initialising board with No queen
-    for (int i = 0; i < n; i++)
+    for(int i=0;i<n;i++)
     {
-        for (int j = 0; j < n; j++)
+        for(int j=0;j<n;j++)
         {
-            board[i][j] = '.';
+            board[i][j]='.';
         }
     }
-    solve(0, board,n); // 0th col is called
-    return 0;
-}
+    helper(0,n);
+    
+} 
