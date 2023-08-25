@@ -37,7 +37,7 @@ void kruskal(int n,int a[10][10])
 		v=j;
 	     }
 	  }
-       }
+   }
        i=find(u,parent);
        j=find(v,parent);
        if(i!=j)
@@ -73,6 +73,4 @@ void main()
      for(j=0;j<n;j++)
 	scanf("%d",&a[i][j]);
    kruskal(n,a);
-   
-
 }

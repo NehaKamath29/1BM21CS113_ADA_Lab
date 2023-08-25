@@ -15,7 +15,7 @@ void DFS(int i,int vis[],int n)
 }
 void main()
 {
-    int n,i,j,top=-1;
+    int n,i,j,top=-1,isConnected;
     printf("Enter the number of vertices:\n");
     scanf("%d",&n);
     printf("Enter the adjacency matrix representing the graph:\n");
@@ -34,4 +34,29 @@ void main()
     }
     printf("The DFS traversal is:\n");
     DFS(0,vis,n);
+    printf("\n");
+    isConnected=1;
+    for(int i=0;i<n;i++)
+    {
+        if(vis[i]==0)
+        {
+            isConnected=0;
+            break;
+        }
+    }
+    if(isConnected)
+    printf("The graph is connected.\n");
+    else
+    printf("The graph is not connected:\n");
 }
+
+/*
+Number of vertices : 6
+Adj Matrix:-
+0 1 1 0 0 0
+0 0 0 1 1 0
+0 0 0 0 0 1
+0 1 0 0 0 0
+0 1 0 0 0 0
+0 0 1 0 0 0
+*/
